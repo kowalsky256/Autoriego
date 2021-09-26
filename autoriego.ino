@@ -114,16 +114,16 @@ void printResult(int numSensor, bool regando, int secco){
 
 void doCheckMesure(){
   
-  checkMesure(sensor1Pin, relay1Pin, 1);
-  checkMesure(sensor2Pin, relay2Pin, 2);
-  checkMesure(sensor3Pin, relay3Pin, 3);
+  checkMesure(sensor1Pin, NUM_SENSOR[0]);
+  checkMesure(sensor2Pin, NUM_SENSOR[1]);
+  checkMesure(sensor3Pin, NUM_SENSOR[2]);
   doCheckMesure();
   Serial.println();
   Serial.println("*******************");
   
 }
 
-void checkMesure(int sensor, int relay, int numSensor){
+void checkMesure(int sensor, int numSensor){
   sensorValue = analogRead(sensor);
   secco = map( sensorValue, 200,500, 0,100);
   
