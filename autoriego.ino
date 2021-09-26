@@ -12,7 +12,7 @@ int pump1Pin = 12;      // sepect the pin for the pump
 int sensorValue;  // variable to store the value coming from the sensor
 int secco; // variable to store the value coming from the mapping of sensorValue
 int input;
-//bool regando;
+
 const int buttonPin=6;
 int buttonState=0;
 bool botton_ON=false;
@@ -54,7 +54,7 @@ void loop() {
   doTask();
   
 
-  delay(10000);        // delay in between reads for stability
+  delay(10000); // delay in between reads for stability
 }
 
 
