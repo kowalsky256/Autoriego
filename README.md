@@ -3,7 +3,7 @@
 
      |------------------------------------------------------------|
      0                                                           100
-   Humedo                                                        Seco
+   Humedo 														 Seco
 
 
 ## Lindars
@@ -20,3 +20,6 @@ Sensor3 <= -60 --> Parar Regar
 
 
 digitalWrite(relay1Pin, HIGH); --> No regar
+
+
+digitalWrite(relay1Pin, LOW;   --> Regar
