@@ -3,7 +3,7 @@ int sensor1Pin = A0;    // select the input pin for the humidity sensor 1
 int sensor2Pin = A1;    // select the input pin for the humidity sensor 2
 int sensor3Pin = A2;    // select the input pin for the humidity sensor 3
 
-int relay1Pin = 2;      // select the pin for the relay 1
+int relay1Pin = 2;      // select the pin for the relay 1  ---> Activar Relay
 int relay2Pin = 3;      // select the pin for the relay 2
 int relay3Pin = 4;      // select the pin for the relay 3
 
@@ -14,7 +14,7 @@ int input;
 bool regando;
 const int buttonPin=6;
 int buttonState=0;
-bool botton_ON=true;
+bool botton_ON=false;
 
 
 int LIMITE_HUMEDO=55;
@@ -32,9 +32,9 @@ void setup() {
   pinMode(pump1Pin, OUTPUT);
 
   //InitialState
-  digitalWrite(relay1Pin, LOW);
-  digitalWrite(relay2Pin, LOW);
-  digitalWrite(relay3Pin, LOW);
+  digitalWrite(relay1Pin, HIGH);
+  digitalWrite(relay2Pin, HIGH);
+  digitalWrite(relay3Pin, HIGH);
   
   digitalWrite(pump1Pin, LOW);
   regando=false;
@@ -55,22 +55,29 @@ void loop() {
     doTest(input, relay1Pin, pump1Pin);
     delay(1000);   
   }*/
-
- 
-    if (!botton_ON){
+  digitalWrite(relay1Pin, HIGH);
+  digitalWrite(relay2Pin, HIGH);
+  digitalWrite(relay3Pin, HIGH);
+  checkMesure(sensor1Pin, relay1Pin, 1);
+  checkMesure(sensor2Pin, relay2Pin, 2);
+  checkMesure(sensor3Pin, relay3Pin, 3);
+  Serial.println();
+  Serial.println("*******************");
+  delay(10000);        // delay in between reads for stability
+   /* if (!botton_ON){
   
-     doTestCapacitador(A2, relay2Pin, pump1Pin, 2);
-     doTestCapacitador(A1, relay1Pin, pump1Pin, 1);
+     //doTestCapacitador(A2, relay2Pin, pump1Pin, 2);
+     //doTestCapacitador(A1, relay1Pin, pump1Pin, 1);
      //doTask(sensor1Pin, relay1Pin, pump1Pin);
      //doTask(sensor2Pin, relay2Pin, pump1Pin);
      //doTask(sensor3Pin, relay3Pin, pump1Pin);
-     delay(3000);        // delay in between reads for stability
+     
   }
   else{
     digitalWrite(relay1Pin, HIGH);
     digitalWrite(relay2Pin, HIGH);
     digitalWrite(relay3Pin, HIGH);
-  }
+  }*/
 }
 
 
@@ -127,6 +134,18 @@ void doTask (int sensor, int relay, int pumpIn) {
      regando=false;
      
    }
+}
+
+
+
+void checkMesure(int sensor, int relay, int numSensor){
+  sensorValue = analogRead(sensor);
+  secco = map( sensorValue, 200,500, 0,100);
+  
+  Serial.print("Sensor ");
+  Serial.print(numSensor);
+  Serial.print(": ");
+  Serial.println(secco);
 }
 
 
