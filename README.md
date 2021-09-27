@@ -9,7 +9,7 @@
 ## Lindars
 Sensor1 >= 75 --> Regar
 
-Sensor2 >= 20 --> Regar
+Sensor2 >= 30 --> Regar
 
 Sensor3 >= 34 --> Regar
 
@@ -17,7 +17,7 @@ Sensor3 >= 34 --> Regar
 
 Sensor1 <= 34 --> Parar Regar
 
-Sensor2 <= ¿¿27?? --> Parar Regar
+Sensor2 <= -55 --> Parar Regar
 
 Sensor3 <= -60 --> Parar Regar
 
