@@ -18,9 +18,10 @@ int buttonState=0;
 bool botton_ON=false;
 
 
-int LIMITE_HUMEDO[3] = {34, -55,-60};
-int LIMITE_SECO[3] = {75, 30, 34};
+int LIMITE_HUMEDO[3] = {-45, -30,-60};
+int LIMITE_SECO[3] = {22,-19 , 34};
 int NUM_SENSOR[3] = {1,2,3};
+
 
 bool isWatering[3] = {false, false, false};
 
