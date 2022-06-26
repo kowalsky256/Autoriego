@@ -27,3 +27,6 @@ digitalWrite(relay1Pin, HIGH); --> No regar
 
 
 digitalWrite(relay1Pin, LOW;   --> Regar
+
+## Version
+En esta version Gabriel ha añadido un cuarto sensor. Falta adatar los valores de humedo y seco.
